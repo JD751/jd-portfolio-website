@@ -1,7 +1,7 @@
 
 # **Personal Portfolio Website of jawad Ali**
 
-This is a personal portfolio website built with [Next.js](https://nextjs.org/). It showcases your work, blog posts, projects, and includes a signup form for visitors to subscribe. The website is fully responsive and optimized for SEO, with a modern, clean design to highlight your skills and achievements.
+This is a personal portfolio website built with [Next.js](https://nextjs.org/). The original author of this code was @Lorant-one. The repository was cloned from GitHub and modified and refactored. The website showcases work, blog posts, projects, and includes a signup form for visitors to subscribe. The website is fully responsive and optimized for SEO, with a modern, clean design to highlight skills and achievements.
 
 ## **Features**
 
