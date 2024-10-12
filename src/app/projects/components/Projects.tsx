@@ -26,7 +26,6 @@ export function Projects({ range }: ProjectsProps) {
                 <ProjectCard
                     key={post.slug}
                     href={`/projects/${post.slug}`}
-                    images={[]}
                     title={post.metadata.title}
                     description={post.metadata.summary}
                     content={post.content}
