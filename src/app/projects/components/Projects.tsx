@@ -8,7 +8,7 @@ interface ProjectsProps {
 }
 
 export function Projects({ range }: ProjectsProps) {
-    let allProjects = getPosts(['src', 'app', 'work', 'projects']);
+    let allProjects = getPosts(['src', 'app', 'projects', 'projects']);
 
     const sortedProjects = allProjects.sort((a, b) => {
         return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
@@ -25,8 +25,8 @@ export function Projects({ range }: ProjectsProps) {
             {displayedProjects.map((post) => (
                 <ProjectCard
                     key={post.slug}
-                    href={`/work/${post.slug}`}
-                    images={post.metadata.images}
+                    href={`/projects/${post.slug}`}
+                    images={[]}
                     title={post.metadata.title}
                     description={post.metadata.summary}
                     content={post.content}

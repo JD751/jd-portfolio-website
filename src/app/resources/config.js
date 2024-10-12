@@ -3,15 +3,15 @@ const baseURL = 'nextjs-portfolio.up.railway.app'
 const routes = {
     '/':        true,
     '/about':   true,
-    '/work':    true,
+    '/projects':true,
     '/blog':    true,
-    '/gallery': true,
+    '/gallery': false,
 }
 
 // Enable password protection on selected routes
 // Set password in pages/api/authenticate.ts
 const protectedRoutes = {
-    '/work/automate-design-handovers-with-a-figma-to-code-pipeline': true
+    '/projects/automate-design-handovers-with-a-figma-to-code-pipeline': true
 }
 
 const effects = {
@@ -23,8 +23,8 @@ const effects = {
 const style = {
     theme:       'dark',         // dark | light
     neutral:     'gray',         // sand | gray | slate
-    brand:       'aqua',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-    accent:      'yellow',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    brand:       'violet',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    accent:      'violet',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
     solid:       'contrast',     // color | contrast
     solidStyle:  'flat',         // flat | plastic
     border:      'playful',      // rounded | playful | conservative
@@ -38,7 +38,7 @@ const display = {
 }
 
 const mailchimp = {
-    action: 'https://url/subscribe/post?parameters',
+    action: 'https://851eba9b.sibforms.com/serve/MUIFACAT8eCxE7nORt3HJt2xuxcm1Q3Ci7u7je6YZ8PyU85FKydE-PkVuKmzgBLWJNJ2D5ud1CzEnTCtqb93Q37WuYl0PdEGe75PrBW_3ipCoF9Q2JsGRjCiHT__Vzvk5RZ_rRCRi09QicEKnTihhvkXmsCAyaf3GTF9xFDUeBFfdx6klcfOYK2VoJBRiJFLOT5L2-j3kQV81QN5',
     effects: {
         gradient: true,
         dots:     false,

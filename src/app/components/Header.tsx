@@ -7,7 +7,7 @@ import { Flex, ToggleButton } from "@/once-ui/components"
 import styles from '@/app/components/Header.module.scss'
 
 import { routes, display } from '@/app/resources'
-import { person, home, about, blog, work, gallery } from '@/app/resources'
+import { person, home, about, blog, projects} from '@/app/resources'
 
 type TimeDisplayProps = {
     timeZone: string;
@@ -61,9 +61,8 @@ export const Header = () => {
                 paddingLeft="12" fillWidth
                 alignItems="center"
                 textVariant="body-default-s">
-                { display.location && (
-                    <>{person.location}</>
-                )}
+            
+        
             </Flex>
             <Flex
                 background="surface" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
@@ -88,12 +87,12 @@ export const Header = () => {
                             <Flex paddingX="2" hide="s">{about.label}</Flex>
                         </ToggleButton>
                     )}
-                    { routes['/work'] && (
+                    { routes['/projects'] && (
                         <ToggleButton
                             prefixIcon="grid"
-                            href="/work"
-                            selected={pathname.startsWith('/work')}>
-                            <Flex paddingX="2" hide="s">{work.label}</Flex>
+                            href="/projects"
+                            selected={pathname.startsWith('/projects')}>
+                            <Flex paddingX="2" hide="s">{projects.label}</Flex>
                         </ToggleButton>
                     )}
                     { routes['/blog'] && (
@@ -104,24 +103,16 @@ export const Header = () => {
                             <Flex paddingX="2" hide="s">{blog.label}</Flex>
                         </ToggleButton>
                     )}
-                    { routes['/gallery'] && (
-                        <ToggleButton
-                            prefixIcon="gallery"
-                            href="/gallery"
-                            selected={pathname.startsWith('/gallery')}>
-                            <Flex paddingX="2" hide="s">{gallery.label}</Flex>
-                        </ToggleButton>
-                    )}
-                </Flex>
+              
+                </Flex> 
+
             </Flex>
             <Flex
                 hide="s"
                 paddingRight="12" fillWidth
                 justifyContent="flex-end" alignItems="center"
                 textVariant="body-default-s">
-                { display.time && (
-                    <TimeDisplay timeZone={person.location}/>
-                )}
+               
             </Flex>
         </Flex>
     )

@@ -16,7 +16,7 @@ export type SmartImageProps = ImageProps & {
     isLoading?: boolean;
     objectFit?: CSSProperties['objectFit'];
     enlarge?: boolean;
-    src: string;
+    src?: string;
 };
 
 const SmartImage: React.FC<SmartImageProps> = ({
@@ -73,7 +73,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
         };
     };
 
-    const isVideo = src.endsWith('.mp4');
+    const isVideo = src?.endsWith('.mp4');
 
     return (
         <>

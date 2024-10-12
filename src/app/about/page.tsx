@@ -39,9 +39,9 @@ const structure = [
         items: []
     },
     { 
-        title: about.work.title,
-        display: about.work.display,
-        items: about.work.experiences.map(experience => experience.company)
+        title: about.projects.title,
+        display: about.projects.display,
+        items: about.projects.experiences.map(experience => experience.company)
     },
     { 
         title: about.studies.title,
@@ -77,7 +77,7 @@ export default function About() {
                             .map((item) => item.link),
                         worksFor: {
                             '@type': 'Organization',
-                            name: about.work.experiences[0].company || ''
+                            name: about.projects.experiences[0].company || ''
                         },
                     }),
                 }}
@@ -109,7 +109,7 @@ export default function About() {
                             <Icon
                                 onBackground="accent-weak"
                                 name="globe"/>
-                            {person.location}
+                            
                         </Flex>
                         { person.languages.length > 0 && (
                             <Flex
@@ -134,33 +134,8 @@ export default function About() {
                         fillWidth minHeight="160"
                         direction="column" justifyContent="center"
                         marginBottom="32">
-                        {about.calendar.display && (
-                            <Flex
-                                className={styles.blockAlign}
-                                style={{
-                                    backdropFilter: 'blur(var(--static-space-1))',
-                                    border: '1px solid var(--brand-alpha-medium)',
-                                    width: 'fit-content'
-                                }}
-                                alpha="brand-weak" radius="full"
-                                fillWidth padding="4" gap="8" marginBottom="m"
-                                alignItems="center">
-                                <Flex paddingLeft="12">
-                                    <Icon
-                                        name="calendar"
-                                        onBackground="brand-weak"/>
-                                </Flex>
-                                <Flex
-                                    paddingX="8">
-                                    Schedule a call
-                                </Flex>
-                                <IconButton
-                                    href={about.calendar.link}
-                                    data-border="rounded"
-                                    variant="tertiary"
-                                    icon="chevronRight"/>
-                            </Flex>
-                        )}
+                        
+                               
                         <Heading
                             className={styles.textAlign}
                             variant="display-strong-xl">
@@ -200,80 +175,62 @@ export default function About() {
                         </Flex>
                     )}
 
-                    { about.work.display && (
+                    { about.projects.display && (
                         <>
                             <Heading
                                 as="h2"
-                                id={about.work.title}
+                                id={about.projects.title}
                                 variant="display-strong-s"
                                 marginBottom="m">
-                                {about.work.title}
+                                {about.projects.title}
                             </Heading>
                             <Flex
                                 direction="column"
                                 fillWidth gap="l" marginBottom="40">
-                                {about.work.experiences.map((experience, index) => (
-                                    <Flex
-                                        key={`${experience.company}-${experience.role}-${index}`}
-                                        fillWidth
-                                        direction="column">
-                                        <Flex
-                                            fillWidth
-                                            justifyContent="space-between"
-                                            alignItems="flex-end"
-                                            marginBottom="4">
-                                            <Text
-                                                id={experience.company}
-                                                variant="heading-strong-l">
-                                                {experience.company}
-                                            </Text>
-                                            <Text
-                                                variant="heading-default-xs"
-                                                onBackground="neutral-weak">
-                                                {experience.timeframe}
-                                            </Text>
-                                        </Flex>
-                                        <Text
-                                            variant="body-default-s"
-                                            onBackground="brand-weak"
-                                            marginBottom="m">
-                                            {experience.role}
-                                        </Text>
-                                        <Flex
-                                            as="ul"
-                                            direction="column" gap="16">
-                                            {experience.achievements.map((achievement, index) => (
-                                                <Text
-                                                    as="li"
-                                                    variant="body-default-m"
-                                                    key={`${experience.company}-${index}`}>
-                                                    {achievement}
-                                                </Text>
-                                            ))}
-                                        </Flex>
-                                        {experience.images.length > 0 && (
-                                            <Flex
-                                                fillWidth paddingTop="m" paddingLeft="40"
-                                                wrap>
-                                                {experience.images.map((image, index) => (
-                                                    <Flex
-                                                        key={index}
-                                                        border="neutral-medium"
-                                                        borderStyle="solid-1"
-                                                        radius="m"
-                                                        minWidth={image.width} height={image.height}>
-                                                        <SmartImage
-                                                            enlarge
-                                                            radius="m"
-                                                            sizes={image.width.toString()}
-                                                            alt={image.alt}
-                                                            src={image.src}/>
-                                                    </Flex>
-                                                ))}
-                                            </Flex>
-                                        )}
-                                    </Flex>
-                                ))}
+                                
+                                {about.projects.experiences.map((experience, index) => (
+                                <Flex
+    key={`${experience.company}-${experience.role}-${index}`}
+    fillWidth
+    direction="column"
+  >
+    <Flex
+      fillWidth
+      justifyContent="space-between"
+      alignItems="flex-end"
+      marginBottom="4"
+    >
+      <Text id={experience.company} variant="heading-strong-l">
+        {experience.company}
+      </Text>
+      <Text variant="heading-default-xs" onBackground="neutral-weak">
+        {experience.timeframe}
+      </Text>
+    </Flex>
+    <Text
+      variant="body-default-s"
+      onBackground="brand-weak"
+      marginBottom="m"
+    >
+      {experience.role}
+    </Text>
+    <Flex as="ul" direction="column" gap="16">
+      {experience.achievements.map((achievement, index) => (
+        <Text
+          as="li"
+          variant="body-default-m"
+          key={`${experience.company}-${index}`}
+        >
+          {achievement}
+        </Text>
+      ))}
+    </Flex>
+    {/* Removed the image rendering code since experience.images no longer exists */}
+  </Flex>
+))}
+        
+                                
+        
                             </Flex>
                         </>
                     )}
@@ -336,27 +293,7 @@ export default function About() {
                                             onBackground="neutral-weak">
                                             {skill.description}
                                         </Text>
-                                        {skill.images.length > 0 && (
-                                            <Flex
-                                                fillWidth paddingTop="m" gap="12"
-                                                wrap>
-                                                {skill.images.map((image, index) => (
-                                                    <Flex
-                                                        key={index}
-                                                        border="neutral-medium"
-                                                        borderStyle="solid-1"
-                                                        radius="m"
-                                                        minWidth={image.width} height={image.height}>
-                                                        <SmartImage
-                                                            enlarge
-                                                            radius="m"
-                                                            sizes={image.width.toString()}
-                                                            alt={image.alt}
-                                                            src={image.src}/>
-                                                    </Flex>
-                                                ))}
-                                            </Flex>
-                                        )}
+                                       
                                     </Flex>
                                 ))}
                             </Flex>
@@ -367,3 +304,6 @@ export default function About() {
         </Flex>
     );
 }
+
+
+

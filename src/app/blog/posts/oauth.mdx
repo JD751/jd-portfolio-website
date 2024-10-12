@@ -1,0 +1,115 @@
+---
+title: "OAuth 2.0 and OpenID Connect explained"
+publishedAt: "2023-02-23"
+summary: "OAuth 2.0 and OpenID Connect (OIDC) are essential protocols for addressing cybersecurity challenges, offering secure and standardized solutions for authorization and authentication."
+---
+
+
+OAuth 2.0 is a widely adopted protocol for secure authorization in web and mobile apps. Its increasing popularity is due to benefits like improved security, scalability, and ease of use. Familiarity with OAuth 2.0 and OpenID Connect is essential for professionals working in web or mobile app development, given its critical role in the industry.
+
+However, to understand the difference between OAuth 2.0 and OpenID Connect, it’s important to first distinguish between authentication and authorization. Many people, even within the industry, confuse these two concepts.
+
+### Authentication
+
+Authentication is the process of verifying the identity of a user, device, or application. This is typically done by presenting some form of credentials, such as a username and password, a security token, or a digital certificate. The goal of authentication is to ensure that the party claiming an identity is, in fact, who they say they are. Once a user has been authenticated, the system can trust that they are who they claim to be, and can provide them with appropriate access to resources.
+
+### Authorization
+
+Authorization, on the other hand, is the process of determining whether a user, device, or application has the necessary permissions to access a particular resource or perform a specific action. This is typically done by evaluating the user’s identity and the permissions associated with that identity. The goal of authorization is to ensure that users are only able to access the resources that they are allowed to access and are prevented from accessing resources that they should not have access to.
+
+In short, **authentication** is the process of verifying who you are, while **authorization** is the process of verifying what you can do. Both are important components of systems security and are used together to ensure that users are able to access the resources they need while also protecting those resources from unauthorized access.
+
+## Key OAuth 2.0 Terminologies
+
+### Resource
+
+A resource or a ‘Protected Resource’ is something (usually secured data) that is being sought during the whole OAuth 2.0 authorization process.
+
+### Resource Owner
+
+Resource owner is an entity capable of granting access to a protected resource.
+
+### Resource Server
+
+A server hosting the protected resource.
+
+### Authorization Server
+
+A server that authenticates the resource owner and issues access tokens to the client.
+
+### Tokens
+
+Tokens are digital objects that represent a user’s authorization to access a protected resource. There are different types of tokens, including session tokens and JSON Web Tokens (JWTs).
+
+### Client
+
+A third-party application trying to access a Protected Resource.
+
+### Identity Provider
+
+An identity provider (IdP) is an entity responsible for authenticating and authorizing users who want to grant access to their protected resources to third-party applications. Common IdPs are Google, Facebook, and Twitter, etc.
+
+## What is OAuth 2.0?
+
+OAuth 2.0 is an open authorization protocol that enables secure access to protected resources in a distributed environment. It is a widely used standard that allows third-party applications to access protected user resources, such as account information or social media data, without requiring the user to share their login credentials with the application.
+
+OAuth 2.0 builds upon its predecessor, OAuth 1.0, and provides a more streamlined and flexible approach to authorization. It uses access tokens to provide access to protected resources, which are obtained through an authorization process that involves the user granting permission to the third-party application. The authorization process typically involves the user being redirected to a login screen hosted by the identity provider, where they enter their credentials and grant permission to the third-party application.
+
+OAuth 2.0 is widely used by popular web services such as Google, Facebook, and Twitter, as well as many other companies and organizations, to provide secure access to user data and resources. It has become a de facto standard for authorization in the modern web and is used by many web and mobile applications to provide access to user resources.
+
+## OAuth 2.0 Flows
+
+OAuth 2.0 defines several “flows” or “grant types” that enable different use cases for authorizing third-party access to protected resources. Each flow is designed to address specific security concerns and use case requirements.
+
+### Authorization Code Flow
+
+This is the most common—and in my opinion, the most secure—flow and is typically used for web applications. It involves the user being redirected to a login screen hosted by the identity provider, where they enter their credentials and grant permission to the third-party application. The authorization server then returns an authorization code to the application, which can be exchanged for an access token that can be used to access protected resources.
+
+### Implicit Flow
+
+This flow is similar to the Authorization Code Flow, but is designed for use with JavaScript and single-page applications. It involves the user being redirected to the identity provider’s login screen, where they enter their credentials and grant permission to the application. The difference between Authorization code flow and Implicit flow is that the authorization server returns an access token directly to the application, rather than an authorization token.
+
+### Client Credentials Flow
+
+This flow is designed for server-to-server communication and does not involve user interaction. The client (i.e., the application) presents its own credentials to the authorization server to obtain an access token, which can be used to access protected resources.
+
+### Device Authorization Flow
+
+This flow is designed for devices that do not have a web browser or have limited input capabilities. It involves the device displaying a code to the user, which the user enters on a different device with a web browser. The user is then redirected to the identity provider’s login screen, where they enter their credentials and grant permission to the device.
+
+## Benefits of OAuth 2.0
+
+- OAuth 2.0 provides a more secure way of handling user authorization than traditional approaches, such as sending passwords or API keys in plain text.
+- With OAuth 2.0, users are able to grant or revoke access to their resources in a more transparent and user-friendly way, giving users more control and a better user experience.
+- OAuth 2.0 provides a standardized way of handling user consent and access control, which can help improve scalability and interoperability between different systems.
+- Many popular web services, such as Google, Facebook, and Twitter, have implemented OAuth 2.0, making it easy for developers to integrate their applications with these services and leverage their existing user base.
+- OAuth 2.0 is designed to be flexible and extensible, allowing developers to build custom authentication and authorization flows to meet the needs of their specific use case.
+
+## Drawbacks of OAuth 2.0
+
+- **Risk of token theft:** Because OAuth 2.0 access tokens can be used to access protected resources, they can be a valuable target for attackers. If an access token is stolen or compromised, it can be used to access the user’s resources without their consent. Therefore, it is important to secure the tokens.
+- **User privacy concerns:** Because OAuth 2.0 allows third-party applications to access user resources, some users may be concerned about their privacy and the security of their data. This can lead to decreased adoption of OAuth 2.0 in certain contexts.
+- **Limited authentication:** While OAuth 2.0 provides a standardized way of handling authorization, it does not provide a standardized way of handling authentication.
+
+## What is OpenID Connect?
+
+To create a standardized way of handling user authentication using the OAuth 2.0 protocol, OpenID Connect (OIDC) was introduced. OIDC is an extension of the OAuth 2.0 protocol. While OAuth 2.0 was originally designed as an authorization system, not an authentication system, the fact that it grants access to protected resources within a trusted identity provider (IdP), such as Facebook, means that the Resource Owner must be authenticated by the IdP. And that logic can be used to authenticate a user.
+
+In OAuth 2.0's Authorization Code Flow, for example, Spotify can use the fact that it was able to gain authorization to access protected resources (e.g., email) by the explicit permission of a user from a trusted Identity Provider, such as Facebook. This must mean that the user is authenticated by Facebook. Why go to the trouble of authenticating the user again? Hence, it would create an access token for the user, and the user can simply log into Spotify using Facebook.
+
+## Benefits of OIDC
+
+- OIDC supports **Single Sign-On (SSO)**, which means that users only need to authenticate once and can then access multiple applications without having to log in again, improving the user experience and reducing the burden on users.
+- OIDC is designed to be **user-centric**, which means that it prioritizes the user’s control over their identity information and provides greater transparency and user control. This can help to build trust and confidence in the authentication and authorization process, leading to increased adoption.
+
+## Drawbacks of OIDC
+
+- **Reliance on third-party identity providers:** OIDC relies on third-party identity providers (IdPs) to authenticate users, which can create a single point of failure. If the IdP, such as Facebook, experiences an outage or a security breach, or you happen to lose your login credentials, you would lose access to multiple applications.
+- **Token lifetime management:** OIDC access tokens have a limited lifetime and need to be refreshed or renewed periodically, which can affect the reliability of such a method.
+
+## Conclusion
+
+In conclusion, OAuth 2.0 and OpenID Connect (OIDC) are important protocols for providing secure and standardized authorization and authentication services for web and mobile applications. While OAuth 2.0 provides a standardized way of handling authorization, OIDC builds on top of the OAuth 2.0 framework to provide both authentication and authorization.
+
+
+

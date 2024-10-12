@@ -1,0 +1,72 @@
+---
+title: "Object Oriented Programming- A Family Analogy"
+publishedAt: "2023-01-01"
+summary: "the four main principles of OOP — abstraction, encapsulation, inheritance, and polymorphism — have more in common with a family unit than you may have thought. In modern software systems, these principles help create flexibility, reusability, and efficiency."
+---
+
+## Abstraction
+
+It is a quiet Sunday night, and Michael is working on a project for school that is due the next day. He’s been working hard the whole day to meet the deadline. Finally, Michael finishes the project and is excited and relieved. He’s already thinking of hitting the fridge and opening up that tub of ice cream. He worked hard and he deserves it. He saves his work and goes to print it out, but to his dismay, he realizes that he’s out of printer ink.
+
+Michael frantically searches through his supplies, hoping that he might find a spare, but it’s no use. He asks his dad for help and his dad, being the helpful person that he is, agrees to go out and get the supplies Michael needs. He tells his dad what he needs — the type of ink cartridge — and his dad sets off to get it for him. Michael doesn’t have to worry about the details of how his dad is going to get the stationery — he just knows that his dad will take care of it.
+
+As Michael waits for the much-needed supplies to arrive, his dad is taking care of the details. He’s just focused on the end result — having the ink cartridge he needs so he can finally get the job done. The process of his dad going to the store, selecting the appropriate ink, and paying for it is abstracted from him. He doesn’t need to know how his dad is doing it — he just needs to know that his dad will get it done.
+
+This is similar to the first principle of Object-Oriented Programming (OOP), **abstraction**. In OOP, developers create abstractions by defining classes and objects that represent real-world concepts or processes. These classes and objects expose essential characteristics and behaviors while hiding the details of their implementation. This allows developers to focus on the interface of the class or object, rather than the details of its implementation.
+
+For example, consider a class called “InkCartridgeRetriever” that represents the process of retrieving stationery. The essential characteristics of this class might include the type of ink cartridge being retrieved (e.g., Canon, Epson), while its behaviors might include going to the store and paying for the stationery, among other things. By abstracting away the details of how the ink cartridge is retrieved, purchased, and transported, developers can make use of the InkCartridgeRetriever class in their programs to retrieve ink, without needing to know how it is implemented.
+
+Eventually, Michael’s dad returns home with the supplies he needs, and Michael is able to finish his project on time. As he reflects on the experience, he realizes that abstraction played a crucial role in making it all possible.
+
+## Encapsulation
+
+One evening, as the sun was setting, Michael’s mom called him and his siblings to the table. She looked tired and a little frailer than usual, and Michael could sense that this was an important moment. She had been struggling since Dad passed away, and Michael knew that she was doing her best to hold everything together.
+
+“I’m getting old,” she began, her voice cracking a little. “And I want to make sure that everything is in order before I go.” She explained that she had taken care of all of the important documents, including the will. She told Michael and his siblings about the estate, which included a house, a few rental properties, and some savings and investments.
+
+Michael noticed that the only people present at the table were his immediate family. This information about the assets and estate could be considered an “object” that is encapsulated within the family unit. She is only sharing this information with Michael and his siblings and not disclosing it to the outside world.
+
+In the context of OOP, **encapsulation** refers to the grouping of related data and behavior (methods) in a single unit. Encapsulation in OOP helps to improve the modularity, reusability, and security of the code, by allowing you to control access to the data and behavior of an object.
+
+For example, we could imagine that Mom has a class called “Estate” that contains the following attributes (data) and methods (behavior):
+
+- `assets` (private attribute): a list of all of the assets in the estate (e.g., the house, rental properties, savings, investments)
+- `balance` (private attribute): the total value of the assets in the estate
+- `calculate_assets_worth` (private method): a method that calculates the total value of the assets in the estate
+- `update_will` (private method): a method that allows Mom to add/remove people or modify the will
+
+Because the attributes and methods are private, they can only be accessed from within the “Estate” class itself. This means that Mom can keep the details of the estate hidden from the outside world and only share them with the people she wants to.
+
+## Inheritance
+
+It’s a quiet Sunday afternoon, and Michael is sitting at the kitchen table with his siblings, going through his parents’ will. His parents have passed away, and they have left a clear and fair plan for distributing their assets among all of them.
+
+According to the will, the house and all of the rental properties would be distributed among Michael and his siblings. In addition, they will each receive a share of their parents’ savings and investments. There is also money reserved to be given to charity. Michael and his siblings will inherit from the hard work their parents put in during their life, so things are easier for them as they build their own lives.
+
+This scenario is a good example of **inheritance** in OOP. Just like how Michael and his siblings inherit the assets of their parents upon their passing, a child class in OOP inherits the characteristics and behaviors of its parent class. This allows developers to create new classes that are based on existing ones, rather than starting from scratch.
+
+In OOP, inheritance is the mechanism by which a new class, known as the child class or subclass, is derived from an existing class, known as the parent class or superclass. The child class inherits the characteristics and behaviors of the parent class, as well as any additional characteristics and behaviors that are specific to the child class.
+
+For example, consider a parent class called `Parent` that represents a generic person with characteristics such as name, age, and gender. A child class called `Child` could be derived from the Parent class using the following formula:
+
+Child extends Parent
+
+This means that the `Child` class will inherit all of the characteristics and behaviors of the `Parent` class, as well as any additional characteristics and behaviors specific to children.
+
+## Polymorphism
+
+The house that Michael inherited from his parents had a number of features, such as windows, doors, and a roof. It also had a number of behaviors, such as opening and closing windows and doors and keeping the interior of the house protected from the elements.
+
+There was one issue, though: the house was getting worn out, and Michael had noticed some signs of age, such as peeling paint and creaky floors. He also discovered some mold in the basement, which was a concern for the health and safety of his family.
+
+Michael started by creating a plan for the renovations, which included repairs, adding an additional floor to the house, and building a garage to meet the needs of his growing family. He hired a team of contractors to help with the renovations, and they began by tearing down some walls and building a new garage.
+
+Once the garage was complete, the contractors moved on to the main house. They started by addressing the mold issue, which involved removing the affected materials and treating the affected areas to prevent further growth. They also repaired any damaged areas of the house, such as the creaky floors and peeling paint.
+
+This is similar to **polymorphism**, an important principle of OOP. Polymorphism refers to the ability of a single entity, such as a function or method, to exhibit multiple behaviors. In OOP, polymorphism enables a function or method to take multiple forms, allowing developers to choose the form that is appropriate for the required behavior.
+
+In the example above, the renovated house could be considered a new class called `RenovatedHouse` that inherits from the `House` class and overrides some of its methods. For example, it might override the `number_of_floors` method to return the new number of floors in the renovated house, and the `has_garage` method to return `True`.
+
+## Conclusion
+
+In conclusion, the four main principles of OOP — abstraction, encapsulation, inheritance, and polymorphism — have more in common with a family unit than you may have thought. In modern software systems, these principles help create flexibility, reusability, and efficiency.

@@ -1,0 +1,131 @@
+---
+title: "How to Create a RESTful API using Django Rest Framework"
+publishedAt: "2024-03-23"
+summary: "This article provides a step-by-step guide on how to create a RESTful API using Django Rest Framework (DRF). It covers the basics of APIs, RESTful architecture, and CRUD operations. The guide also walks through the process of setting up Django, creating models, serializers, viewsets, and defining API endpoints, enabling developers to efficiently build scalable APIs."
+---
+
+
+
+
+## What is an API?
+
+API stands for “Application Programming Interface.” Simply put, APIs can be seen as the messenger that takes requests and tells a system what you want to do, and then returns the response back to you. In other words, an API acts as an intermediary between two applications and allows them to talk to each other.
+
+## What is a RESTful API?
+
+A RESTful API is a type of API that follows the architectural style and constraints of the REST (Representational State Transfer) architectural pattern. RESTful APIs use HTTP methods (such as GET, POST, PUT, DELETE) to perform operations on resources and HTTP status codes to indicate the success or failure of these operations.
+
+RESTful APIs are popular because they are scalable, flexible, and easy to understand and use. RESTful APIs can be easily consumed by a wide range of client applications, including web applications, mobile apps, and other APIs.
+
+## What is CRUD?
+
+The acronym CRUD is used to describe the basic operations that can be performed on data in a database or any other persistent storage system.
+
+- **Create**: The process of inserting new data into the database.
+- **Read**: The process of retrieving existing data from the database.
+- **Update**: The process of modifying existing data in the database.
+- **Delete**: The process of removing data from the database.
+
+These four operations form the basis of most database interactions by APIs.
+
+## How to Create a RESTful API using Django Rest Framework:
+
+Django Rest Framework (DRF) provides several class-based views, including `ModelViewSet`, that can be used to handle the CRUD operations for your API. Below is a step-by-step guide on how you can use `ModelViewSet` to create a RESTful API in Django.
+
+Please Note: If you haven’t already created a project and would like to know how to create one in Django, you can read my post regarding that at: [How to create a new project in Django: A Step-by-Step Guide](https://medium.com/@jawad751/how-to-create-a-new-project-in-django-a-step-by-step-guide-5cb97878184d).
+
+### 1. Install Django Rest Framework
+
+```bash
+pip install djangorestframework
+
+###2. Add ‘rest_framework’ to your INSTALLED_APPS in the settings.py file
+
+python
+
+INSTALLED_APPS = [
+    ...,
+    'rest_framework',
+]
+
+###3. Create a Django model for the data you want to expose via the API
+
+We are creating an example model that lists the holidays on offer and sends the data to a holiday website via an API. Due to Django’s ORM, this model would be automatically converted into an SQL table in the database.
+
+python
+
+from django.db import models
+
+class Holidays(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    date = models.DateField()
+
+###4. Create a serializers.py file within the app
+
+python
+
+from rest_framework import serializers
+from .models import Holidays
+
+class HolidaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Holidays
+        fields = '__all__'
+
+###5. Create a serializer for the model
+
+In DRF, serializers are used to convert complex data types, such as Django models, into Python data types that can be easily rendered into JSON or other content types. This enables smooth communication between the database and the frontend. Serializers also validate incoming data before it is saved to the database.
+###6. Create a ModelViewSet in the views.py file for the model
+
+python
+
+from rest_framework import viewsets
+from .models import Holidays
+from .serializers import HolidaySerializer
+
+class HolidayViewSet(viewsets.ModelViewSet):
+    queryset = Holidays.objects.all()
+    serializer_class = HolidaySerializer
+
+###7. Create an API endpoint for the viewset
+
+An API endpoint is a specific URL that represents a resource or a set of resources in an API. It is the entry point for accessing and manipulating the data provided by the API.
+
+python
+
+from rest_framework.routers import DefaultRouter
+from django.urls import path, include
+from .views import HolidayViewSet
+
+router = DefaultRouter()
+router.register(r'holidays', HolidayViewSet, basename='holidays')
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+]
+
+###8. Migrate the models to the database
+
+bash
+
+python manage.py makemigrations
+python manage.py migrate
+
+###9. Start the Django development server and test the API
+
+bash
+
+python manage.py runserver
+
+You can also test your API using tools like Postman.
+
+### Conclusion
+
+With these steps, you have successfully created a RESTful API using the Django Rest Framework and ModelViewSet. In the next part of this series, I will explain how you can secure your API, which is crucial for professional API development. Stay tuned!
+
+PS: You can find the code for this project on my GitHub account at:
+
+GitHub - JD751/restful_api_part_1
+

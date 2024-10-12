@@ -1,0 +1,60 @@
+---
+title: "Django API Project"
+publishedAt: "2024-10-10"
+summary: "An API for uploading and processing images, with JWT authentication, user tiers, and Docker support, designed for high performance and scalability."
+
+
+team:
+  - name: "Jawad Ali"
+    role: "Fullstack and AI Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: 'https://www.linkedin.com/in/jawad-ali-746227294/'
+---
+
+## Overview
+
+This Django API project provides a robust and scalable solution for uploading and processing images. It allows users to upload images, generate thumbnails, manage image expiration, and assign users to various subscription plans (Basic, Premium, Enterprise). The API leverages JWT authentication for secure access, and performance is optimized using strategies like pagination. Docker integration simplifies deployment and scaling of the API.
+
+## Key Features
+
+- **Image Upload and Processing**: Users can upload images and generate thumbnails in different sizes. Additionally, expiration times can be managed to automatically delete images after a certain period.
+  
+- **JWT Authentication**: Implements JSON Web Token (JWT) authentication to secure access to the API, ensuring that only authorized users can upload and manage images.
+
+- **User Plans and Custom Tiers**: The API supports three default plans (Basic, Premium, Enterprise) and allows custom tier creation. Each tier defines specific features such as the number of images allowed or the size of thumbnails available to users.
+
+- **Performance Optimization**: Pagination is implemented to handle large datasets efficiently, ensuring that the API performs well even under heavy load. 
+
+- **Test Coverage**: Comprehensive tests have been written to validate all functionality, ensuring that the API works as expected in different scenarios. This includes data validation, JWT authentication, and image management.
+
+- **Docker Integration**: The project includes a `Dockerfile`, making it easy to package the project into a Docker image. This simplifies deployment and ensures consistency across different environments.
+
+## Technologies Used
+
+- **Django**: The core framework for building the API, handling routing, views, and database interactions.
+- **JWT (JSON Web Token)**: For secure user authentication and authorization.
+- **PostgreSQL or SQLite**: As the database to store user and image data, supporting scalability and reliability.
+- **Docker**: To containerize the application for seamless deployment.
+- **Python**: For server-side logic and API functionalities.
+- **pipenv**: For managing dependencies and virtual environments.
+
+## Challenges and Learnings
+
+One of the key challenges was ensuring the API performed well under heavy traffic and large file uploads. Strategies such as image compression, caching, and pagination were implemented to maintain efficiency. Additionally, balancing security (via JWT) and ease of use required thoughtful design, especially when handling multiple user tiers with different levels of access. Docker integration also required learning how to efficiently containerize the Django application for scalability.
+
+## Outcome
+
+The Django API project successfully delivers a secure, scalable, and high-performing API for image uploading and processing. Key outcomes include:
+
+- **Improved User Access Control**: With JWT authentication and customizable subscription tiers, the API allows precise control over user access and the features they can utilize.
+  
+- **Efficient Image Management**: The ability to upload images, generate thumbnails, and set expiration times for automatic deletion streamlines the process for users and administrators alike.
+  
+- **Seamless Deployment**: Docker containerization simplifies the deployment process, ensuring consistency across development, testing, and production environments.
+
+- **Optimized Performance**: Through pagination and careful data validation, the API can handle large datasets and high traffic, ensuring reliability and performance at scale.
+
+This project demonstrates the power of Django in building feature-rich, secure, and scalable APIs, with seamless Docker integration for modern deployment workflows.
+
+
+[View the GitHub repository of this Project](https://github.com/JD751/api_project)
