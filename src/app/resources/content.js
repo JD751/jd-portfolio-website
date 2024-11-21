@@ -70,8 +70,8 @@ const about = {
         title: 'Introduction',
         description: <>I am a passionate Full Stack and AI Developer with experience in designing and building web applications, machine learning models, and end-to-end AI solutions. My expertise spans across frontend and backend development, as well as implementing intelligent systems that enhance user experiences and optimize workflows. With a strong foundation in programming, data science, and modern frameworks, I am committed to creating innovative and efficient solutions for both businesses and individuals.</>
     },
-    projects: {
-        display: true, // set to false to hide this section
+    /*projects: {
+        display: false, // set to false to hide this section
         title: 'Work Experience',
         experiences: [
             {
@@ -94,6 +94,7 @@ const about = {
             
         ]
     },
+    */
     studies: {
         display: true, // set to false to hide this section
         title: 'Studies',
